@@ -34,9 +34,9 @@ AuthorSchema.virtual("date_of_birth_formatted").get(function () {
     : "";
 });
 
-AuthorSchema.virtual("due_back_formatted").get(function () {
+AuthorSchema.virtual("date_of_death_formatted").get(function () {
   return this.date_of_death
-    ? DateTime.fromJSDate(this.due_back).toLocaleString(DateTime.DATE_MED)
+    ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
     : "";
 });
 
