@@ -87,7 +87,7 @@ exports.genre_delete_get = asyncHandler(async (req, res, next) => {
     Book.find({ genre: req.params.id }, "title summary").exec(),
   ]);
 
-  if (author === null) {
+  if (genre === null) {
     // No results.
     res.redirect("/catalog/genres");
   }
