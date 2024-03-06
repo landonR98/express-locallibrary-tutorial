@@ -61,7 +61,6 @@ exports.genre_create_post = [
         genre: genre,
         errors: errors.array(),
       });
-      return;
     } else {
       // Data from form is valid.
       // Check if Genre with same name already exists.
