@@ -5,12 +5,23 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const compression = require("compression");
+const helmet = require("helmet");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog");
 
 const app = express();
+
+// Add helmet to the middleware chain.
+// Set CSP headers to allow our Bootstrap and Jquery to be served
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+    },
+  })
+);
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
